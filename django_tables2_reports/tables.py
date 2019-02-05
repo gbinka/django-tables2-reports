@@ -85,8 +85,8 @@ class TableReport(tables.Table):
     exclude_from_report = ()  # the names of columns that should be excluded from report
 
     def __init__(self, *args, **kwargs):
-        if not 'template' in kwargs:
-            kwargs['template'] = 'django_tables2_reports/table.html'
+        if not 'template_name' in kwargs:
+            kwargs['template_name'] = 'django_tables2_reports/table.html'
         prefix_param_report = kwargs.pop('prefix_param_report', DEFAULT_PARAM_PREFIX)
         super(TableReport, self).__init__(*args, **kwargs)
         self.param_report = generate_prefixto_report(self, prefix_param_report)
